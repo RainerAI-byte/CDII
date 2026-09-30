@@ -1,27 +1,29 @@
 # Comparación de candidatos
 
-| Criterio           | Candidato A: Predict Students' Dropout                                        | Candidato B: Iranian Churn                        |
-| ------------------ | ----------------------------------------------------------------------------- | ------------------------------------------------- |
-| Procedencia        | UCI Machine Learning Repository                                               | UCI Machine Learning Repository                   |
-| Licencia           | CC BY 4.0                                                                     | CC BY 4.0                                         |
-| Filas              | 4,424                                                                         | 3,150                                             |
-| Columnas/variables | 36 predictoras + target                                                       | 13 predictoras + target                           |
-| Tipo de tarea      | Clasificación multiclase                                                      | Clasificación binaria                             |
-| Target             | `Target`                                                                      | `Churn`                                           |
-| Clases             | Dropout, Enrolled, Graduate                                                   | Churn, Non-churn                                  |
-| Valores ausentes   | No                                                                            | No                                                |
-| Unidad de análisis | Estudiante                                                                    | Cliente                                           |
-| Riesgo de fuga     | Alto si se usan variables de rendimiento posteriores al momento de predicción | Bajo, debido a la separación temporal documentada |
-| Tamaño para CPU    | Compatible                                                                    | Compatible                                        |
-| Aplicación         | Seguimiento académico y abandono universitario                                | Retención de clientes                             |
-| Documentación      | UCI + diccionario de variables                                                | UCI + diccionario de variables                    |
+| Criterio                      | Candidato A: Statlog (German Credit)         | Candidato B: Australian Credit Approval      |
+| ----------------------------- | -------------------------------------------- | -------------------------------------------- |
+| Procedencia                   | UCI Machine Learning Repository              | UCI Machine Learning Repository              |
+| Licencia                      | Creative Commons Attribution 4.0 (CC BY 4.0) | Creative Commons Attribution 4.0 (CC BY 4.0) |
+| Filas / variables predictoras | 1,000 / 20                                   | 690 / 14                                     |
+| Target y clases               | `class`: Good / Bad                          | Clasificación binaria: aprobado / rechazado  |
+| Valores ausentes              | 0%                                           | 0%                                           |
+| Riesgo de fuga                | Bajo                                         | Bajo                                         |
+| Aptitud para SVM              | Alta                                         | Alta                                         |
 
-## Decisión
+## Dataset aprobado
 
-Se propone utilizar **Predict Students' Dropout and Academic Success** para el desarrollo del laboratorio.
+El dataset seleccionado para el desarrollo del LAB02 es **Statlog (German Credit)**.
 
-La selección responde principalmente a la posibilidad de formular una pregunta institucional relacionada con educación superior y a que el dataset fue creado específicamente para estudiar el abandono y éxito académico mediante modelos de clasificación.
+La selección fue aprobada por el docente antes del entrenamiento final, de acuerdo con el procedimiento establecido en la guía del laboratorio.
 
-El principal riesgo identificado es el posible data leakage asociado con las variables de rendimiento del primer y segundo semestre. Por tanto, antes del entrenamiento se documentará el momento de predicción y se justificará cualquier variable excluida.
+## Fuente
 
-El dataset Iranian Churn se mantiene como candidato alternativo y cumple los criterios mínimos de tamaño, clasificación, documentación, licencia y ausencia de valores faltantes.
+UCI Machine Learning Repository.
+
+## Documentación oficial
+
+https://archive.ics.uci.edu/dataset/144/statloggermancreditdata
+
+## Descarga directa
+
+https://archive.ics.uci.edu/static/public/144/data.csv

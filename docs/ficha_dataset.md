@@ -1,31 +1,36 @@
 # Ficha del dataset
 
-* **Dominio:** Educación superior.
-* **Unidad de análisis:** Estudiante universitario.
-* **Decisión apoyada:** Identificar estudiantes que requieren seguimiento y acompañamiento académico.
-* **Target tentativo:** `Target`.
-* **Tipo de tarea:** Clasificación multiclase.
-* **Error más costoso:** Clasificar incorrectamente como no desertor a un estudiante cuyo resultado final sea `Dropout`.
-* **Usuario:** Institución de educación superior, áreas de seguimiento académico y acompañamiento estudiantil.
+## Dataset
 
-## Pregunta del proyecto
+**Statlog (German Credit Data)**
 
-¿Qué tan bien puede un modelo de clasificación predecir el resultado académico final de un estudiante universitario a partir de las variables disponibles?
+## Dominio
 
-## Fuente
+Evaluación y clasificación del riesgo crediticio.
 
-**UCI Machine Learning Repository — Predict Students' Dropout and Academic Success**
+## Unidad de análisis
 
-El dataset contiene 4,424 instancias y 36 variables predictoras. Cada instancia representa un estudiante. El problema está formulado como clasificación de tres categorías: `Dropout`, `Enrolled` y `Graduate`.
+Cada registro representa una solicitud de crédito correspondiente a una persona solicitante.
 
-El dataset no contiene valores faltantes y fue utilizado por sus autores con una división de 80 % para entrenamiento y 20 % para prueba.
+## Decisión
 
-**Licencia:** Creative Commons Attribution 4.0 International (CC BY 4.0).
+Determinar la clasificación de riesgo crediticio de una solicitud como **Good** o **Bad**.
 
-**DOI:** 10.24432/C5MC89.
+## Target
 
-## Riesgo inicial de fuga de información
+La variable objetivo es `class`, que representa la clasificación del crédito.
 
-El dataset contiene información disponible al momento de la matrícula, pero también variables relacionadas con el rendimiento académico del primer y segundo semestre.
+* `Good`: crédito clasificado como bueno.
+* `Bad`: crédito clasificado como malo.
 
-Por tanto, antes del entrenamiento se revisará el momento de disponibilidad de estas variables. No se eliminarán variables únicamente por su efecto sobre las métricas; cualquier exclusión deberá justificarse por disponibilidad temporal o por una razón semántica.
+## Error más costoso
+
+El error de mayor impacto para la institución financiera sería clasificar como **Good** una solicitud que realmente pertenece a la clase **Bad**, debido a que podría aprobarse o considerarse favorable una operación asociada con un mayor riesgo de incumplimiento.
+
+## Usuario
+
+El usuario del modelo sería el área responsable de evaluación y aprobación de créditos de una entidad financiera.
+
+## Pregunta de modelado
+
+¿Es posible utilizar las características disponibles de una solicitud de crédito para clasificar su riesgo como **Good** o **Bad**?

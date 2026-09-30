@@ -1,73 +1,54 @@
 # Diccionario de variables
 
-**Fuente:** UCI Machine Learning Repository — Predict Students' Dropout and Academic Success.
+**Fuente:** UCI Machine Learning Repository — Statlog (German Credit Data).
 
-**Unidad de análisis:** estudiante universitario.
+El dataset contiene **20 variables predictoras** y una variable objetivo. Las variables predictoras son de tipo categórico o entero. El conjunto de datos no presenta valores faltantes.
 
-| Variable                                       | Significado                                 | Tipo / unidad                 | Disponibilidad     | Transformación prevista               | Riesgo    |
-| ---------------------------------------------- | ------------------------------------------- | ----------------------------- | ------------------ | ------------------------------------- | --------- |
-| Marital Status                                 | Estado civil                                | Categórica codificada         | Matrícula          | Escalado como numérica en el pipeline | Bajo      |
-| Application mode                               | Modalidad de solicitud/admisión             | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Application order                              | Orden de preferencia de la solicitud        | Ordinal                       | Matrícula          | Escalado                              | Bajo      |
-| Course                                         | Programa académico                          | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Daytime/evening attendance                     | Jornada de asistencia                       | Categórica binaria            | Matrícula          | Escalado                              | Bajo      |
-| Previous qualification                         | Formación académica previa                  | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Previous qualification (grade)                 | Calificación de formación previa            | Continua, 0–200               | Matrícula          | Imputación + escalado                 | Bajo      |
-| Nacionality                                    | Nacionalidad                                | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Mother's qualification                         | Nivel educativo de la madre                 | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Father's qualification                         | Nivel educativo del padre                   | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Mother's occupation                            | Ocupación de la madre                       | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Father's occupation                            | Ocupación del padre                         | Categórica codificada         | Matrícula          | Escalado                              | Bajo      |
-| Admission grade                                | Calificación de admisión                    | Continua                      | Matrícula          | Imputación + escalado                 | Bajo      |
-| Displaced                                      | Condición de desplazamiento                 | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Educational special needs                      | Necesidades educativas especiales           | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Debtor                                         | Condición de deudor                         | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Tuition fees up to date                        | Pagos de matrícula al día                   | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Gender                                         | Género                                      | Categórica binaria codificada | Matrícula          | Escalado                              | Bajo      |
-| Scholarship holder                             | Beneficiario de beca                        | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Age at enrollment                              | Edad al ingresar                            | Años                          | Matrícula          | Imputación + escalado                 | Bajo      |
-| International                                  | Estudiante internacional                    | Binaria                       | Matrícula          | Escalado                              | Bajo      |
-| Curricular units 1st sem (credited)            | Asignaturas acreditadas en 1.er semestre    | Conteo                        | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 1st sem (enrolled)            | Asignaturas inscritas en 1.er semestre      | Conteo                        | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 1st sem (evaluations)         | Evaluaciones realizadas en 1.er semestre    | Conteo                        | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 1st sem (approved)            | Asignaturas aprobadas en 1.er semestre      | Conteo                        | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 1st sem (grade)               | Calificación del 1.er semestre              | Continua                      | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 1st sem (without evaluations) | Asignaturas sin evaluación en 1.er semestre | Conteo                        | 1.er semestre      | Imputación + escalado                 | Medio     |
-| Curricular units 2nd sem (credited)            | Asignaturas acreditadas en 2.º semestre     | Conteo                        | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Curricular units 2nd sem (enrolled)            | Asignaturas inscritas en 2.º semestre       | Conteo                        | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Curricular units 2nd sem (evaluations)         | Evaluaciones realizadas en 2.º semestre     | Conteo                        | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Curricular units 2nd sem (approved)            | Asignaturas aprobadas en 2.º semestre       | Conteo                        | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Curricular units 2nd sem (grade)               | Calificación del 2.º semestre               | Continua                      | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Curricular units 2nd sem (without evaluations) | Asignaturas sin evaluación en 2.º semestre  | Conteo                        | 2.º semestre       | Imputación + escalado                 | Alto      |
-| Unemployment rate                              | Tasa de desempleo                           | Porcentaje                    | Contexto económico | Imputación + escalado                 | Bajo      |
-| Inflation rate                                 | Tasa de inflación                           | Porcentaje                    | Contexto económico | Imputación + escalado                 | Bajo      |
-| GDP                                            | Producto interno bruto                      | Indicador económico           | Contexto económico | Imputación + escalado                 | Bajo      |
-| Target                                         | Resultado académico final                   | Clase                         | Resultado final    | Variable objetivo; no entra en X      | No aplica |
+| Variable    | Tipo       | Significado                                     | Unidad / codificación | Disponibilidad                  | Transformación prevista | Riesgo de fuga |
+| ----------- | ---------- | ----------------------------------------------- | --------------------- | ------------------------------- | ----------------------- | -------------- |
+| Attribute1  | Categórica | Estado de la cuenta corriente existente         | Categorías A11–A14    | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute2  | Entera     | Duración del crédito                            | Meses                 | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute3  | Categórica | Historial crediticio                            | Categorías A30–A34    | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute4  | Categórica | Propósito del crédito                           | Categorías A40–A410   | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute5  | Entera     | Monto del crédito                               | Monto monetario       | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute6  | Categórica | Cuenta de ahorros / bonos                       | Categorías A61–A65    | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute7  | Categórica | Tiempo en el empleo actual                      | Categorías A71–A75    | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute8  | Entera     | Tasa de la cuota respecto al ingreso disponible | Porcentaje            | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute9  | Categórica | Estado personal y sexo                          | Categorías A91–A95    | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute10 | Categórica | Otros deudores o garantes                       | Categorías A101–A103  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute11 | Entera     | Tiempo de residencia actual                     | Años                  | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute12 | Categórica | Patrimonio / propiedad                          | Categorías A121–A124  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute13 | Entera     | Edad                                            | Años                  | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute14 | Categórica | Otros planes de cuotas                          | Categorías A141–A143  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute15 | Categórica | Vivienda                                        | Categorías A151–A153  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute16 | Entera     | Número de créditos existentes en el banco       | Cantidad              | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute17 | Categórica | Tipo o calidad del empleo                       | Categorías A171–A174  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute18 | Entera     | Personas a cargo                                | Cantidad              | Predecisión                     | Escalamiento            | Bajo           |
+| Attribute19 | Categórica | Teléfono registrado a nombre del cliente        | Categorías A191–A192  | Predecisión                     | One-hot encoding        | Bajo           |
+| Attribute20 | Categórica | Trabajador extranjero                           | Categorías A201–A202  | Predecisión                     | One-hot encoding        | Bajo           |
+| class       | Objetivo   | Riesgo crediticio                               | 1 = Good, 2 = Bad     | Resultado que se desea predecir | Codificación del target | No aplica      |
 
-## Observación sobre fuga de información
+## Observaciones sobre las variables
 
-Las variables correspondientes al primer y segundo semestre representan información académica posterior al momento de matrícula. UCI confirma que el dataset combina información disponible al momento de la matrícula con rendimiento académico de los dos primeros semestres.
+Las variables describen características financieras, personales y de la solicitud de crédito utilizadas para caracterizar el riesgo crediticio.
 
-Por esta razón, estas variables se mantienen en el experimento actual para reproducir el problema de clasificación definido por el dataset, pero se identifican como variables de **riesgo temporal** si el objetivo fuera realizar una predicción verdaderamente temprana al momento de la matrícula.
+La documentación oficial de UCI identifica variables relacionadas con la duración y monto del crédito, historial crediticio, ahorros, empleo, vivienda, edad, créditos existentes y otras características del solicitante.
 
-No se eliminan automáticamente porque la guía establece que toda exclusión debe estar respaldada por una justificación semántica o de disponibilidad temporal.
+No se eliminarán variables únicamente por su cantidad de valores únicos. Cualquier exclusión posterior deberá estar sustentada en una razón relacionada con el significado de la variable, su disponibilidad al momento de la predicción o un riesgo documentado de fuga de información.
 
 ## Target
 
-El target `Target` contiene tres clases:
+La variable `class` constituye el target del problema de clasificación.
 
-* `Dropout`
-* `Enrolled`
-* `Graduate`
+* `1` = Good
+* `2` = Bad
 
-La documentación oficial de UCI define el problema como clasificación multiclase de tres categorías.
+La documentación oficial de UCI confirma esta codificación. También proporciona una matriz de costos en la que clasificar como **Good** un crédito que realmente es **Bad** tiene un costo mayor que el error contrario.
 
-## Fuente y licencia
+## Transformaciones
 
-Dataset: **Predict Students' Dropout and Academic Success**.
+Las variables numéricas se procesan mediante imputación por mediana y estandarización con `StandardScaler`.
 
-Repositorio: UCI Machine Learning Repository.
+Las variables categóricas se procesan mediante imputación por la categoría más frecuente y codificación `OneHotEncoder`.
 
-DOI: **10.24432/C5MC89**.
-
-Licencia: **CC BY 4.0**.
+Todo el preprocesamiento se mantiene dentro de un `Pipeline` para evitar aplicar transformaciones utilizando información del conjunto de prueba.

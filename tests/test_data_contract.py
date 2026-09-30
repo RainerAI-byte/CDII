@@ -2,18 +2,19 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.inf8239_u01.data import download_csv
+from inf8239_u01.data import download_csv
 
 
-TARGET = "Target"
+TARGET = "class"
 
 REQUIRED = {
     TARGET,
-    "Marital Status",
-    "Course",
+    "Attribute1",
+    "Attribute2",
+    "Attribute5",
 }
 
-URL = "https://archive.ics.uci.edu/static/public/697/data.csv"
+URL = "https://archive.ics.uci.edu/static/public/144/data.csv"
 DATA_PATH = Path("data/raw/dataset.csv")
 
 
@@ -32,7 +33,7 @@ def test_required_columns_exist():
     assert REQUIRED <= set(load_data().columns)
 
 
-def test_target_has_no_missing_and_three_classes():
+def test_target_has_no_missing_and_two_classes():
     y = load_data()[TARGET]
 
     assert y.notna().all()

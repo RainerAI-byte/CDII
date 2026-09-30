@@ -7,9 +7,6 @@ def download_csv(
     url: str,
     destination="data/raw/dataset.csv"
 ) -> Path:
-    """
-    Descarga un CSV desde una URL HTTP(S) y lo guarda localmente.
-    """
 
     if not url.startswith(("https://", "http://")):
         raise ValueError(
@@ -17,6 +14,7 @@ def download_csv(
         )
 
     path = Path(destination)
+
     path.parent.mkdir(
         parents=True,
         exist_ok=True
