@@ -4,14 +4,25 @@ version = "0.1.0"
 description = "Proyecto reproducible de visión para INF-8239"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-dependencies = ["matplotlib>=3.9,<4", "numpy>=2.0,<3", "scikit-learn>=1.5,<2"]
+dependencies = [
+    "matplotlib>=3.9,<4",
+    "numpy>=2.0,<3",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.5,<2",
+]
 
 [project.optional-dependencies]
 cpu = ["tensorflow>=2.21,<2.22"]
 gpu = ["tensorflow[and-cuda]>=2.21,<2.22"]
 
 [dependency-groups]
-dev = ["pytest>=8.3,<9", "ruff>=0.9,<1"]
+dev = [
+    "nbclient>=0.11.0",
+    "nbformat>=5.11.1",
+    "notebook>=7.6.3",
+    "pytest>=8.3,<9",
+    "ruff>=0.9,<1",
+]
 
 [build-system]
 requires = ["hatchling"]

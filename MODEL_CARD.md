@@ -1,140 +1,152 @@
-﻿# Model Card — Fashion-MNIST CNN
+﻿# Model Card - Fashion-MNIST CNN
 
-## 1. Uso previsto
+## 1. Identificacion
 
-Este modelo fue desarrollado como ejercicio académico de clasificación de imágenes utilizando el dataset Fashion-MNIST.
+**Proyecto:** INF-8239 - Unidad 02 - Ejercicio 04
+**Tarea:** clasificacion multiclase de imagenes Fashion-MNIST
+**Modelos:** red neuronal densa y red neuronal convolucional (CNN)
 
-Su propósito es comparar un modelo baseline denso con una red neuronal convolucional (CNN) bajo las mismas condiciones experimentales.
+## 2. Uso previsto
 
-### Uso previsto
-- Clasificación académica de imágenes de prendas de vestir.
-- Evaluación reproducible de modelos de aprendizaje automático.
-- Comparación de desempeño y costo computacional.
+Este modelo fue desarrollado con fines academicos para estudiar un flujo reproducible de clasificacion de imagenes y comparar el desempeño predictivo y costo computacional de una red densa frente a una CNN.
 
 ### Fuera de alcance
-- No está diseñado para decisiones médicas, financieras o de seguridad.
-- No debe utilizarse como sistema productivo sin validación adicional.
-- Los resultados no deben generalizarse automáticamente a otros datasets o dominios.
 
-## 2. Dataset y particiones
+No esta diseñado para decisiones medicas, financieras, legales, de seguridad u otros contextos de alto impacto. No debe utilizarse en produccion sin una validacion adicional.
 
-Dataset: Fashion-MNIST.
+## 3. Dataset y particion
 
-Características:
-- 60,000 imágenes de entrenamiento.
-- 10,000 imágenes de prueba.
-- Resolución: 28 × 28 píxeles.
+Se utilizo Fashion-MNIST:
+
+- 70,000 imagenes en total.
+- 60,000 imagenes originales de entrenamiento.
+- 10,000 imagenes de prueba.
+- 28 x 28 pixeles.
 - Escala de grises.
 - 10 clases.
-- 1,000 imágenes por clase en el conjunto de prueba utilizado para la evaluación.
+- 54,000 imagenes para entrenamiento.
+- 6,000 imagenes para validacion.
+- 10,000 imagenes para prueba final.
+- Semilla principal: 42.
 
-Las imágenes fueron normalizadas para el entrenamiento de los modelos.
+El conjunto de prueba permanecio separado del entrenamiento y la validacion.
 
-La comparación entre Dense y CNN utilizó la misma partición de evaluación.
+## 4. Resultados finales
 
-## 3. Métricas globales y por clase
-
-### Comparación global
-
-| Modelo | F1 Macro | Parámetros | Entrenamiento (s) | Inferencia (ms/imagen) |
+| Modelo | F1 Macro | Parametros | Entrenamiento (s) | Inferencia (ms/imagen) |
 |---|---:|---:|---:|---:|
-| Dense | 0.8634 | 50,890 | 10.12 | 0.0503 |
-| CNN | 0.7893 | 19,466 | 127.99 | 0.1372 |
+| Dense | **0.863381** | 50,890 | **7.719** | **0.0480** |
+| CNN | 0.789303 | 19,466 | 116.989 | 0.1417 |
 
-El baseline Dense obtuvo un F1 Macro superior al de la CNN en este experimento.
+La diferencia absoluta de F1 Macro fue de **0.074079 puntos a favor del modelo Dense**.
 
-Diferencia de F1 Macro:
+La CNN requirio aproximadamente **15.15 veces mas tiempo de entrenamiento** y **2.95 veces mas tiempo de inferencia por imagen**.
 
-Dense - CNN = 0.0741
+La CNN utilizo aproximadamente **61.7 % menos parametros**, pero esta reduccion no compenso su menor F1 Macro ni su mayor costo temporal en las condiciones evaluadas.
 
-La CNN no produjo una mejora predictiva respecto al baseline.
-
-### Métricas por clase — CNN
+## 5. Metricas por clase de la CNN
 
 | Clase | Precision | Recall | F1 |
 |---:|---:|---:|---:|
 | 0 | 0.645 | 0.807 | 0.717 |
-| 1 | 0.988 | 0.932 | 0.959 |
+| 1 | 0.988 | 0.932 | **0.959** |
 | 2 | 0.705 | 0.642 | 0.672 |
 | 3 | 0.753 | 0.843 | 0.796 |
 | 4 | 0.661 | 0.663 | 0.662 |
 | 5 | 0.950 | 0.885 | 0.916 |
-| 6 | 0.500 | 0.374 | 0.428 |
+| 6 | 0.500 | 0.374 | **0.428** |
 | 7 | 0.855 | 0.952 | 0.901 |
 | 8 | 0.917 | 0.937 | 0.927 |
 | 9 | 0.935 | 0.896 | 0.915 |
 
-La clase con menor F1 fue la clase 6, con 0.428, por lo que constituye la principal dificultad observada en este benchmark.
+La clase 6 presento el menor F1, mientras que la clase 1 presento el mayor. Esto permite identificar las principales diferencias de dificultad entre clases.
 
-## 4. Comparación de costo
+## 6. Evidencia visual
 
-- Hardware: CPU, ejecución en Windows 11.
-- GPU: no disponible en el entorno utilizado.
-- Framework: TensorFlow 2.21.0 / Keras 3.15.1.
-- Parámetros Dense: 50,890.
-- Parámetros CNN: 19,466.
-- Tiempo de entrenamiento Dense: 10.12 segundos.
-- Tiempo de entrenamiento CNN: 127.99 segundos.
-- Inferencia Dense: 0.0503 ms/imagen.
-- Inferencia CNN: 0.1372 ms/imagen.
-- Tamaño del modelo CNN serializado: aproximadamente 268 KB.
+Se generaron las siguientes evidencias:
 
-La CNN tiene menos parámetros que el baseline Dense, pero presentó un costo de entrenamiento considerablemente mayor.
+- reports/training_curves.png - curvas de accuracy y loss.
+- reports/confusion_cnn.png - matriz de confusion.
+- reports/cnn_errors.png - ejemplos de errores de clasificacion.
 
-El entrenamiento de la CNN tardó aproximadamente 12.6 veces más que el Dense.
+Estas visualizaciones complementan las metricas numericas y permiten analizar el comportamiento del modelo durante y despues del entrenamiento.
 
-La inferencia de la CNN fue aproximadamente 2.7 veces más lenta por imagen.
+## 7. Costo computacional y Green AI
 
-## 5. Decisión técnica y Green AI
+La comparacion de costo utiliza tiempo de entrenamiento, tiempo de inferencia y numero de parametros como indicadores operacionales.
 
-En este experimento, la mejora predictiva de la CNN no justificó su mayor costo computacional.
+- Hardware: CPU sobre Windows 11.
+- TensorFlow: 2.21.0.
+- Keras: 3.15.1.
+- Dense: 50,890 parametros.
+- CNN: 19,466 parametros.
+- Entrenamiento Dense: 7.719 segundos.
+- Entrenamiento CNN: 116.989 segundos.
+- Inferencia Dense: 0.0480 ms/imagen.
+- Inferencia CNN: 0.1417 ms/imagen.
+- Tamaño serializado de CNN: aproximadamente 268 KB.
 
-El modelo Dense obtuvo:
-- F1 Macro: 0.8634
-- Entrenamiento: 10.12 s
-- Inferencia: 0.0503 ms/imagen
+No se realizo una medicion directa de consumo electrico ni emisiones de CO2. Por tanto, los resultados representan una comparacion relativa del costo computacional bajo las condiciones de ejecucion utilizadas.
 
-La CNN obtuvo:
-- F1 Macro: 0.7893
-- Entrenamiento: 127.99 s
-- Inferencia: 0.1372 ms/imagen
+## 8. Decision tecnica
 
-Por tanto, para las condiciones de este benchmark, se seleccionaría el modelo Dense como alternativa más eficiente.
+El modelo Dense es la alternativa seleccionada para este benchmark.
 
-Esta decisión está limitada al dataset, partición, arquitectura, número de épocas, hardware y configuración utilizada.
+La decision se fundamenta en que obtuvo mayor F1 Macro y menor costo temporal de entrenamiento e inferencia. Aunque la CNN utiliza menos parametros, no alcanzo el desempeño del baseline.
 
-## 6. Limitaciones y riesgos
+Esta conclusion esta limitada al dataset, particion, arquitectura, ocho epocas, hardware y configuracion utilizados.
 
-- Fashion-MNIST es un benchmark académico y no representa necesariamente imágenes reales de productos.
-- El rendimiento depende de la arquitectura y de las ocho épocas utilizadas.
-- La CNN puede requerir mayor ajuste de hiperparámetros para competir con el baseline.
-- Los resultados obtenidos en CPU no representan necesariamente el costo en GPU u otro hardware.
-- Las clases presentan distintos niveles de dificultad; la clase 6 presentó el menor F1.
-- La matriz de confusión y los errores visuales deben interpretarse dentro del contexto del benchmark.
+## 9. Limitaciones
 
-## 7. Supervisión y monitoreo
+- Fashion-MNIST es un benchmark academico y no representa necesariamente imagenes reales de productos.
+- El rendimiento depende de la arquitectura y de las ocho epocas utilizadas.
+- La CNN podria requerir ajuste adicional de hiperparametros para competir con el baseline.
+- Los resultados en CPU no representan necesariamente el costo en GPU.
+- Las clases presentan distintos niveles de dificultad.
+- El analisis de costo no equivale a una medicion directa de energia o emisiones.
 
-Antes de utilizar el modelo en un contexto real sería necesario:
+## 10. Reproducibilidad
 
-- Validar el modelo con datos representativos del dominio objetivo.
-- Monitorear cambios en la distribución de las imágenes.
-- Revisar periódicamente las métricas globales y por clase.
-- Analizar errores de clasificación.
-- Establecer criterios para reentrenamiento.
-- Mantener registro de versiones del modelo y del dataset.
+Artefactos principales:
 
-## 8. Reproducibilidad
-
-Artefactos generados:
-
-- eports/cv_metrics.json
-- eports/confusion_cnn.png
-- eports/cnn_errors.png
+- 
+otebooks/01_e04_evidencias_cv.ipynb
+- scripts/train_cv.py
+- scripts/check_runtime.py
+- reports/cv_metrics.json
+- reports/training_curves.png
+- reports/confusion_cnn.png
+- reports/cnn_errors.png
 - models/best_cnn.keras
-
+- equirements.txt`n
 Pruebas automatizadas:
 
-2 passed, 1 skipped
+**2 passed, 1 skipped**
 
-El experimento fue ejecutado con Python 3.12.14, TensorFlow 2.21.0 y Keras 3.15.1 sobre Windows 11.
+Entorno verificado:
+
+- Python 3.12.14
+- TensorFlow 2.21.0
+- Keras 3.15.1
+- Windows 11
+- CPU
+
+## 11. Uso responsable de IA
+
+Se utilizo asistencia de herramientas de inteligencia artificial para:
+
+- interpretar errores y advertencias tecnicas;
+- proponer y revisar pruebas;
+- apoyar la organizacion de la documentacion;
+- revisar aspectos de redaccion tecnica.
+
+Las ejecuciones del codigo, metricas, archivos generados y conclusiones fueron verificadas localmente en el entorno del proyecto.
+
+Las correcciones realizadas incluyeron la revision de advertencias de TensorFlow, validacion de pruebas, actualizacion de evidencias visuales y correccion de la documentacion para reflejar los resultados de la ejecucion final.
+
+La responsabilidad sobre los datos, codigo, resultados, referencias y conclusiones corresponde al estudiante.
+
+
+
+
 
