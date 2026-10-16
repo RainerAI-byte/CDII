@@ -1,10 +1,13 @@
-.venv/
+﻿.venv/
 __pycache__/
 .pytest_cache/
 *.py[cod]
+*.bak
 data/raw/*
 !data/raw/.gitkeep
 models/*
 !models/.gitkeep
 reports/*
 !reports/.gitkeep
+!reports/*.csv
+!reports/*.json

@@ -1,0 +1,30 @@
+[
+  {
+    "method": "Popularidad",
+    "hit_rate_at_10": 0.04258943781942078,
+    "catalog_coverage": 0.012163694464488197,
+    "preparation_or_fit_seconds": 0.015307100002246443,
+    "rmse": null
+  },
+  {
+    "method": "Contenido",
+    "hit_rate_at_10": 0.0,
+    "catalog_coverage": 0.15008761983300692,
+    "preparation_or_fit_seconds": 0.046581300000980264,
+    "rmse": null
+  },
+  {
+    "method": "Factorizacion",
+    "hit_rate_at_10": 0.03747870528109029,
+    "catalog_coverage": 0.0746314812905886,
+    "preparation_or_fit_seconds": 17.52592590000131,
+    "rmse": 1.0264183126391635
+  },
+  {
+    "method": "Hibrido",
+    "hit_rate_at_10": 0.03747870528109029,
+    "catalog_coverage": 0.07751778167199258,
+    "preparation_or_fit_seconds": 17.572507200002292,
+    "rmse": 1.0264183126391635
+  }
+]
