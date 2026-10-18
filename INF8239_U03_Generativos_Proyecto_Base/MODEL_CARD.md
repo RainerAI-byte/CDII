@@ -1,4 +1,4 @@
-# Model Card - Autoencoder y VAE
+﻿# Model Card - Autoencoder y VAE
 
 ## 1. Modelos y versiones
 
@@ -157,3 +157,4 @@ La revisión humana es necesaria para interpretar las visualizaciones y determin
 - `reports/interpolation.png`: secuencia de interpolación latente.
 - `models/autoencoder.keras`: Autoencoder entrenado.
 - `models/decoder.keras`: decodificador del VAE entrenado.
+

@@ -1,0 +1,25 @@
+{
+  "seed": 42,
+  "test_examples": 1000,
+  "training_reference_examples": 5000,
+  "generated_examples": 500,
+  "ae_reconstruction": {
+    "mse": 0.02067587338387966,
+    "mae": 0.08276593685150146
+  },
+  "vae_reconstruction": {
+    "mse": 0.03316782787442207,
+    "mae": 0.10932107269763947
+  },
+  "ae_inference_seconds_total": 0.9963562000193633,
+  "vae_inference_seconds_total": 0.25627819998771884,
+  "ae_inference_ms_per_image": 0.9963562000193633,
+  "vae_inference_ms_per_image": 0.25627819998771884,
+  "vae_generated_diversity": {
+    "mean_pairwise_mae": 0.17183637619018555
+  },
+  "vae_generated_nearest_training": {
+    "mean_nearest_train_mae": 0.06655718275159597,
+    "min_nearest_train_mae": 0.03282290697097778
+  }
+}

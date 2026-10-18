@@ -1,7 +1,20 @@
+
+# Entorno y archivos temporales
 .venv/
 __pycache__/
 .pytest_cache/
 *.py[cod]
+.ipynb_checkpoints/
+.env
+.env.*
+
+# Modelos entrenados: pueden ser pesados
 models/*.keras
-reports/*.png
-reports/*.json
+
+# No ignorar las métricas ni las figuras de resultados
+# reports/*.png
+# reports/*.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db

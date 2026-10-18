@@ -1,4 +1,4 @@
-# Declaración de uso de inteligencia artificial
+﻿# Declaración de uso de inteligencia artificial
 
 ## 1. Herramientas utilizadas
 
@@ -64,3 +64,4 @@ El estudiante es responsable de comprender el código entregado, comprobar su ej
 La generación de imágenes sintéticas no garantiza privacidad, anonimato, originalidad ni ausencia de memorización. No se realizan esas afirmaciones sin pruebas específicas.
 
 Las conclusiones se limitan a la ejecución, al dataset, a las arquitecturas y a las métricas descritas en la documentación.
+

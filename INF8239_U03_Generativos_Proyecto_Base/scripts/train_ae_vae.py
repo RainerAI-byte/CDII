@@ -105,10 +105,17 @@ def main():
         axis.imshow(image.squeeze(), cmap="gray")
         axis.axis("off")
     figure.savefig(reports / "interpolation.png", dpi=170, bbox_inches="tight")
+    
     autoencoder.save(models / "autoencoder.keras")
     decoder.save(models / "decoder.keras")
-    metrics = {"ae_train_seconds": ae_seconds, "vae_train_seconds": vae_seconds,
-               "ae_parameters": autoencoder.count_params(), "decoder_parameters": decoder.count_params()}
+    encoder.save(models / "encoder.keras")
+
+    metrics = {
+        "ae_train_seconds": ae_seconds,
+        "vae_train_seconds": vae_seconds,
+        "ae_parameters": autoencoder.count_params(),
+        "decoder_parameters": decoder.count_params(),
+    }
     (reports / "training_metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     print(json.dumps(metrics, indent=2))
 
