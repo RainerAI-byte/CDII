@@ -1,0 +1,5 @@
+stakeholder,benefit,harm,power,participation
+Affected person,Protection from unfair prioritization,Could be overlooked or receive delayed review if the system is misused,low,Documented complaint and request for independent human review
+Operator,More consistent ordering of cases for review,Automation bias or excessive reliance on model outputs,medium,Training and recording of overrides with reasons
+Institutional owner,Traceable decisions and controlled use of resources,Legal reputational and operational exposure if controls fail,high,Approve scope review risk register and authorize suspension
+Data team,Reproducible evaluation and measurable model limitations,Pressure to conceal errors or inadequate subgroup performance,medium,Document validation results limitations incidents and corrective actions
