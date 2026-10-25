@@ -1,6 +1,7 @@
-priority_harm: REPLACE
-primary_metric: REPLACE
-tolerance: REPLACE
-evidence: REPLACE
-limitation: REPLACE
-recommendation: REPLACE
+﻿priority_harm: "Falsos negativos de la clase positiva, especialmente cuando el recall es menor en determinados grupos o intersecciones."
+primary_metric: "Recall de la clase positiva; complementar con recall_gap, fpr_gap, precision y métricas globales."
+tolerance: "Recall mínimo de 0.68; diferencia máxima de recall entre grupos de 0.16; diferencia máxima de FPR de 0.16, según configs/governance.yml."
+evidence: "reports/lab12/logistic/global_metrics.json, reports/lab12/logistic/fairness_by_group.csv y reports/lab12/logistic/fairness_intersectional.csv. Revisar también los resultados del modelo tree antes de comparar alternativas."
+limitation: "El conjunto de datos es sintético y las métricas de algunos subgrupos se calculan sobre muestras pequeñas. Las diferencias observadas no demuestran por sí solas discriminación causal ni permiten generalizar a una población real."
+recommendation: "REVIEW. Mantener el sistema exclusivamente para evaluación académica con datos sintéticos y revisión humana. No autorizar decisiones automatizadas ni despliegue real. Investigar los subgrupos con recall inferior al umbral, comparar modelos y documentar las acciones correctivas antes de reconsiderar la decisión."
+
