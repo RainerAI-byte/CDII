@@ -1,0 +1,4 @@
+﻿model,true_negatives,false_positives,false_negatives,true_positives
+baseline,823,0,357,0
+naive_bayes,821,2,87,270
+logistic_regression,813,10,26,331

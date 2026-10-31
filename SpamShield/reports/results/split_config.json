@@ -1,0 +1,15 @@
+{
+  "dataset": "SpamAssassin Public Corpus",
+  "clean_rows": 5897,
+  "train_rows": 4717,
+  "test_rows": 1180,
+  "test_size": 0.2,
+  "random_state": 42,
+  "stratified": true,
+  "positive_label": "spam",
+  "models": [
+    "baseline",
+    "naive_bayes",
+    "logistic_regression"
+  ]
+}

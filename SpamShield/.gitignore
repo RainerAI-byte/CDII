@@ -1,0 +1,9 @@
+﻿# Datos originales y procesados: no publicar
+data/raw/
+data/processed/
+
+# Entornos y archivos temporales
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
